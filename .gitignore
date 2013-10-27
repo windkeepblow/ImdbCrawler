@@ -1,4 +1,7 @@
+
 *.py[cod]
+#running log
+*.log
 
 # C extensions
 *.so
