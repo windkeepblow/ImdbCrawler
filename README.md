@@ -21,8 +21,10 @@ database in *conf.py*.
 (store the movie profie) and **Rating**(store the ratings of users).
 
 ###MovieInfo
+* Example of a document:
 { "_id" : ObjectId("526bec09c69256153b8665ac"), "title" : "From Paris with Love", "length" : "92 min", "avRating" : " 6.4 ", "year" : "2010", "type" : "Action|Crime|Thriller" }
 ###Rating
+* Example of a document:
 { "_id" : ObjectId("526bec0dc69256153b8665ad"), "rating" : "9", "author" : "22942150", "topic" : "A must see, equal to Taken.", "location" : "Sweden", "time" : "4 March 2010" }
 
 * The profile the movie is not crawled totally. I will make the crawler to crawl
