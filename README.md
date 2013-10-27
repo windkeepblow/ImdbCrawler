@@ -18,5 +18,5 @@ the first place.
 4. Run the crawler in command line:
     >>>>python crawler.py
      
-If you have any question or suggestion, feel free to contact me
-(shaoyf2011@gmail.com)
+If you have any questions or suggestions, feel free to contact me
+(shaoyf2011@gmail.com).
