@@ -10,7 +10,7 @@ rating about the movies they have watched. So it will be helpful to
 our research if we can take advantage of the data on IMDB. Please 
 don't use the data for business.
 
-You can run the code easily as following:
+You can run the code easily as following:\n
 1. Since the code is written by python, you should install python at 
 the first place.
 2. Install mongodb in your machine and start the service.
