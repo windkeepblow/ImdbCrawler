@@ -18,7 +18,7 @@ don't use the data for business.
 create the database and collections if you have specified the name of the
 database in *conf.py*.
 * Two collections will be created when the the crawler is running: **MovieInfo**
-(store the movie profie) and **Rating**(store the ratings of users).
+(store the movie profies) and **Rating**(store the ratings of users).
 
 ###MovieInfo
 
