@@ -39,7 +39,7 @@ def parseMovie(page, startID):
         while(True):
             try:
                 content = urllib2.urlopen(req, timeout=5).read()
-                if parseMovieInfo(content):
+                if parseMovieInfo(content, id.group(1)):
                     if parseRating(id.group(1)):
                         break
                     else:
@@ -67,7 +67,7 @@ def parseMovie(page, startID):
     return True
 
 ##Extract movie info
-def parseMovieInfo(page):
+def parseMovieInfo(page, movieID):
     logging.basicConfig(filename=conf.logPath,format="%(asctime)s:%(levelname)s:%(message)s",level=logging.DEBUG)
 
     error_pat_2 = re.compile(r"<title>404 Error</title>")
@@ -119,14 +119,24 @@ def parseMovieInfo(page):
             type_ = type_ + "|" + length_type_re.group(8)
     
     ##To avoid the "InvalidStringData" error when we insert the data into the db
-    title = title.decode("unicode_escape")
+    flag = True
+    try:
+        title_temp = title.decode("unicode_escape")
+    except UnicodeDecodeError:
+        flag = False
+
+    if flag:
+        title = title_temp        
+    else:
+        title = ""
 
     info = {
         "title": title,
         "year": year,
         "avRating": avRating,
         "length": length,
-        "type": type_
+        "type": type_,
+        "movieID": movieID
         }
     try:
         dbhandler.writeMovieInfo(info)
@@ -140,6 +150,7 @@ def parseMovieInfo(page):
     print "avRating: " + avRating
     print "length: " + length
     print "type: " + type_
+    print "movieID: " + movieID
     return True
 
 ##Extract the rating url
@@ -229,9 +240,16 @@ def parseRatingInfo(page, movieID):
         time = result.group("time")
         
         ##To avoid the "InvalidStringData" error when we insert the data into the db
-        topic = topic.decode("unicode_escape")
-        author = author.decode("unicode_escape")
-        location = location.decode("unicode_escape")
+        flag = True
+        try:
+            topic_temp = topic.decode("unicode_escape")
+        except UnicodeDecodeError:
+            flag = False
+        
+        if flag:
+            topic = topic_temp
+        else:
+            topic = ""
 
         print "-------------" + movieID + "---------------"
         print "topic: " + topic
@@ -239,6 +257,7 @@ def parseRatingInfo(page, movieID):
         print "author: " + author
         print "location: " + location
         print "time: " + time
+        print "movieID: " + movieID
         print "-----------------------------------"
 
         info = {
@@ -246,7 +265,8 @@ def parseRatingInfo(page, movieID):
             "rating": rating,
             "author": author,
             "location": location,
-            "time": time
+            "time": time,
+            "movieID": movieID
         }
         try:
             dbhandler.writeRatingInfo(info)
