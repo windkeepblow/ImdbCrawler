@@ -18,12 +18,16 @@ don't use the data for business.
 create the database and collections if you have specified the name of the
 database in *conf.py*.
 * Two collections will be created when the the crawler is running: **MovieInfo**
-(store the movie profie) and **Rating**(store the ratings of users).
+(store the movie profies) and **Rating**(store the ratings of users).
 
 ###MovieInfo
+
 { "_id" : ObjectId("526e10b4c692561a7f89015d"), "movieID" : "0450345", "title" : "The Wicker Man", "length" : "102 min", "avRating" : " 3.6 ", "year" : "2006", "type" : "Horror|Mystery|Thriller" }
+
 ###Rating
+
 { "_id" : ObjectId("526e10bbc692561a7f89015e"), "rating" : "1", "movieID" : "0450345", "author" : "1616214", "topic" : "Misled by a critic", "location" : "United States", "time" : "6 September 2006" }
+
 
 * The profile the movie is not crawled totally. I will make the crawler to crawl
 more information. You can also change the regular expression in *parser.py* to crawl the information you want.

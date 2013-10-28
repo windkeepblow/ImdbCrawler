@@ -8,3 +8,4 @@ waitTime = 60 #When reach the request limit, how many seconds will the program w
 startID = 2675 #From what sequence number of movie should the crawler begin crawling
 ratingStartID = 60 #From what sequence number of comment(rating) to begin crawling
 movieID = "0450345" #From what movieID to crawl, -1 is to disable the movieID.(type: String)
+
