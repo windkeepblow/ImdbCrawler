@@ -38,7 +38,7 @@ You can run the code easily as following:
 * Since the code is written by python, you should install python at 
 the first place.
 * Install mongodb in your machine and start the service.
-* Modify the configration file(*conf.py*) if necessary.
+* Modify the configuration file(*conf.py*) if necessary.
 * Run the crawler in command line:    >>>>python crawler.py
 
 ##More Information
